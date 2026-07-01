@@ -79,3 +79,15 @@ These gaps are the reason the dataset is deliberately curated and per-incident r
 4. Decide whether to keep or drop CPCID-016 (Log4Shell) given the 2022 disclosure-window question.
 5. Mint the Zenodo DOI and replace the placeholder in `README.md` and `CITATION.cff`.
 6. Confirm the repository contains no em dash characters (a house rule; the build used commas, colons and parentheses throughout).
+
+---
+
+## 7. Reference documents added (2026-07-01)
+
+On 2026-07-01 a `references/` folder was added with three secondary-context documents, synthesised from public Kaggle, academic and government sources:
+
+- `references/RELATED_DATASETS.md`: real, public datasets relevant to connective-product cyber security, grouped by the five technology groups, with slugs/canonical sources, sizes and licences verified live via the Kaggle MCP on 2026-07-01. Carries the honest framing that these are lab/testbed captures and exposure indices, not real-incident registers, and that no product-class-indexed real-incident register exists on Kaggle (the gap this dataset addresses).
+- `references/BIBLIOGRAPHY.md`: the academic literature base grouped by strand (IoT/botnet measurement; edge/appliance exploitation; software/firmware supply chain; OT/ICS; exploitation prediction EPSS/KEV; surveys/SoKs; datasets-and-benchmarks papers), with title/authors/venue/year/URL and all "unverified" flags carried through from the source briefing.
+- `references/POLICY_LANDSCAPE.md`: a dated timeline of UK cross-government activity on connective-product security (DCMS Secure by Design and Code of Practice, PSTI Act and Regulations, BEIS/DESNZ smart-energy consultation, JCNSS ransomware inquiry, NAO/PAC on government cyber resilience, NCSC CAF, the Cyber Security and Resilience Bill), plus the cross-department evidence gap and brief EU CRA / US Cyber Trust Mark context, with confidence caveats preserved.
+
+These three documents are **secondary context only**. The primary artifacts remain the incidents dataset (`data/incidents.csv`, `data/incidents.jsonld`), the taxonomy (`taxonomy/cpcid.ttl`) and the source-quality rubric (`RUBRIC.md`). The reference docs were synthesised from public sources to situate the incident dataset within the wider dataset, literature and policy landscape; they introduce no new incidents and change nothing in the dataset itself. No em dashes were used.

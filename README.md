@@ -65,6 +65,16 @@ Incident identifiers are also minted as URIs under `https://data.tesseract.acade
 
 ---
 
+## Related resources
+
+The `references/` folder provides secondary context that situates the incident dataset within the wider public evidence base. These are supporting material, not the primary artifact (which remains the incidents dataset, taxonomy and rubric).
+
+- [`references/RELATED_DATASETS.md`](references/RELATED_DATASETS.md) : the real, public datasets relevant to connective-product cyber security, grouped by the same five technology groups, with an honest note that these are lab/testbed captures and exposure indices, not real-incident registers (the gap this dataset addresses).
+- [`references/BIBLIOGRAPHY.md`](references/BIBLIOGRAPHY.md) : the academic literature base, grouped by strand, within which the incident taxonomy sits, with verification flags carried through.
+- [`references/POLICY_LANDSCAPE.md`](references/POLICY_LANDSCAPE.md) : a dated timeline of UK cross-government activity on connective-product security, plus the cross-department evidence gap and brief international context.
+
+---
+
 ## Methodology
 
 1. **Selection.** Incidents were selected on two criteria: the most commonly targeted product classes (edge VPN/firewall appliances, consumer IoT, hypervisors, ubiquitous open-source components), and the most serious consequences (confirmed critical-national-infrastructure impact, record-scale effect, or systemic supply-chain significance), with UK relevance prioritised.
