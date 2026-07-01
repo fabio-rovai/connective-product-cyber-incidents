@@ -1,0 +1,328 @@
+{
+  "@context": {
+    "@vocab": "https://data.tesseract.academy/cpcid/vocab#",
+    "cpcid": "https://data.tesseract.academy/cpcid/incident/",
+    "schema": "https://schema.org/",
+    "id": "@id",
+    "name": "schema:name",
+    "year": {
+      "@id": "schema:startDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#gYear"
+    },
+    "tech_group": "techGroup",
+    "vendor_or_product": "vendorOrProduct",
+    "cve": "cve",
+    "vector": "attackVector",
+    "impact_summary": "impactSummary",
+    "impact_quantified": "impactQuantified",
+    "uk_relevance": "ukRelevance",
+    "source_url": {
+      "@id": "schema:citation",
+      "@type": "@id"
+    },
+    "confidence": "confidence"
+  },
+  "@type": "schema:Dataset",
+  "@id": "https://data.tesseract.academy/cpcid/dataset",
+  "name": "Connective Product Cyber Incidents Dataset (CPCID)",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "@graph": [
+    {
+      "@id": "cpcid:001",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-001",
+      "name": "Ivanti Connect Secure zero-day mass exploitation",
+      "year": "2024",
+      "tech_group": "networking_equipment",
+      "vendor_or_product": "Ivanti Connect Secure / Policy Secure SSL-VPN and NAC gateway",
+      "cve": [
+        "CVE-2023-46805",
+        "CVE-2024-21887",
+        "CVE-2024-21888",
+        "CVE-2024-21893",
+        "CVE-2024-22024"
+      ],
+      "vector": "Chained authentication bypass plus command injection giving unauthenticated remote code execution on internet-facing gateway",
+      "impact_summary": "Suspected Chinese state actor (UTA0178 / UNC5221) deployed custom webshells and backdoors for credential theft and lateral movement; CISA Emergency Directive ED 24-01 forced US federal disconnection",
+      "impact_quantified": "Volexity found evidence of compromise on over 1700 ICS appliances",
+      "uk_relevance": "high",
+      "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-060b",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:002",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-002",
+      "name": "Fortinet FortiOS / FortiGate SSL-VPN mass exploitation",
+      "year": "2022",
+      "tech_group": "networking_equipment",
+      "vendor_or_product": "Fortinet FortiOS on FortiGate firewalls (SSL-VPN daemon) and FortiProxy",
+      "cve": [
+        "CVE-2022-42475",
+        "CVE-2024-21762",
+        "CVE-2024-55591"
+      ],
+      "vector": "Multi-year exploitation of critical SSL-VPN flaws (heap overflow / out-of-bounds write / auth bypass) as zero-day and n-day for unauthenticated RCE and super-admin access",
+      "impact_summary": "Confirmed nation-state espionage: Chinese state actors compromised a FortiGate on the Netherlands Ministry of Defence network deploying the COATHANGER implant (per Dutch MIVD/AIVD); April 2025 CISA/Fortinet warned of symlink post-exploitation persistence surviving patching",
+      "impact_quantified": "Earlier related CVE-2018-13379 leaked VPN credentials for approximately 50000 devices; the three headline SSL-VPN CVEs have no single corroborated victim-count aggregate",
+      "uk_relevance": "high",
+      "source_url": "https://www.cisa.gov/news-events/alerts/2025/04/11/fortinet-releases-advisory-new-post-exploitation-technique-known-vulnerabilities",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:003",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-003",
+      "name": "Cisco ArcaneDoor (ASA/FTD) and IOS XE Web UI mass implant",
+      "year": "2023",
+      "tech_group": "networking_equipment",
+      "vendor_or_product": "Cisco ASA / Firepower Threat Defense and Cisco IOS XE (routers and switches)",
+      "cve": [
+        "CVE-2024-20353",
+        "CVE-2024-20359",
+        "CVE-2024-20358",
+        "CVE-2023-20198",
+        "CVE-2023-20273"
+      ],
+      "vector": "State-sponsored ArcaneDoor espionage implants on ASA/FTD (UAT4356 / STORM-1849) plus mass privilege-escalation and command-injection compromise of IOS XE Web UI creating rogue admin accounts",
+      "impact_summary": "Full device takeover of perimeter and backbone routing/switching infrastructure; ArcaneDoor assessed as government-focused espionage; IOS XE compromise was one of the largest network-infrastructure mass-compromise events",
+      "impact_quantified": "Cortex Xpanse telemetry counted 22074 implanted IOS XE devices on 18 October 2023",
+      "uk_relevance": "high",
+      "source_url": "https://blog.talosintelligence.com/arcanedoor-new-espionage-focused-campaign-found-targeting-perimeter-network-devices/",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:004",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-004",
+      "name": "Palo Alto PAN-OS GlobalProtect zero-day (Operation MidnightEclipse)",
+      "year": "2024",
+      "tech_group": "networking_equipment",
+      "vendor_or_product": "Palo Alto Networks PAN-OS firewalls with GlobalProtect gateway/portal",
+      "cve": [
+        "CVE-2024-3400"
+      ],
+      "vector": "Command injection in GlobalProtect giving unauthenticated arbitrary code execution as root (CVSS 10.0)",
+      "impact_summary": "Actor UTA0218 (Volexity) deployed the UPSTYLE Python backdoor and reverse-proxy tooling, exfiltrated firewall configuration and moved laterally; NCSC published a dedicated advisory. A Volt Typhoon / Chinese-APT link was raised only as a low-confidence hypothesis, the confirmed actor label is UTA0218 and NOT confirmed as Volt Typhoon",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "high",
+      "source_url": "https://unit42.paloaltonetworks.com/cve-2024-3400/",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:005",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-005",
+      "name": "MOVEit Transfer mass exploitation (Cl0p)",
+      "year": "2023",
+      "tech_group": "software_firmware",
+      "vendor_or_product": "Progress MOVEit Transfer managed file-transfer software",
+      "cve": [
+        "CVE-2023-34362",
+        "CVE-2023-35036",
+        "CVE-2023-35708"
+      ],
+      "vector": "Cl0p (TA505 / FIN11) exploited an SQL-injection zero-day for unauthenticated RCE and database access, deploying the LEMURLOOT webshell for pure data-theft extortion",
+      "impact_summary": "UK impact came through payroll provider Zellis, cascading to BBC, British Airways and Boots employee payroll data (names, National Insurance numbers, some bank details)",
+      "impact_quantified": "2700+ organisations and roughly 93 to 95 million individuals affected (Emsisoft tally); defensible financial range approximately 6.5 to 10 billion USD (Emsisoft/IBM 165 USD-per-record). The 12bn USD figure is NOT corroborated by an authoritative source",
+      "uk_relevance": "high",
+      "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-158a",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:006",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-006",
+      "name": "XZ Utils backdoor",
+      "year": "2024",
+      "tech_group": "software_firmware",
+      "vendor_or_product": "XZ Utils / liblzma compression library (target: OpenSSH sshd via systemd)",
+      "cve": [
+        "CVE-2024-3094"
+      ],
+      "vector": "Multi-year social-engineering supply-chain compromise: a malicious maintainer (Jia Tan) planted an obfuscated backdoor in release tarballs (5.6.0 / 5.6.1) hooking the sshd RSA routine for pre-auth RCE (CVSS 10.0)",
+      "impact_summary": "A near-miss not a mass compromise: backdoored versions reached only rolling/development branches (Fedora 40 beta/Rawhide, Debian unstable/testing, Kali, openSUSE Tumbleweed, Arch) and were caught by Andres Freund before propagating to stable enterprise releases",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "medium",
+      "source_url": "https://en.wikipedia.org/wiki/XZ_Utils_backdoor",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:007",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-007",
+      "name": "CUPS Linux printing vulnerabilities",
+      "year": "2024",
+      "tech_group": "software_firmware",
+      "vendor_or_product": "OpenPrinting CUPS (cups-browsed, libcupsfilters, libppd, cups-filters) on Linux/Unix",
+      "cve": [
+        "CVE-2024-47076",
+        "CVE-2024-47175",
+        "CVE-2024-47176",
+        "CVE-2024-47177"
+      ],
+      "vector": "Chained flaws let an unauthenticated attacker register a malicious printer whose unvalidated IPP attributes yield arbitrary command execution via foomatic-rip on a triggered print job",
+      "impact_summary": "Real-world RCE severity moderated because cups-browsed is not enabled by default on many distributions (Red Hat rated components Important not Critical); the verified high-impact angle is DDoS amplification",
+      "impact_quantified": "Akamai showed CVE-2024-47176 enables approximately 600x DDoS amplification; found approximately 198000 internet-exposed devices of which approximately 58000 (34%) usable for reflection",
+      "uk_relevance": "medium",
+      "source_url": "https://www.redhat.com/en/blog/red-hat-response-openprinting-cups-vulnerabilities",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:008",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-008",
+      "name": "Aisuru (TurboMirai) IoT DDoS botnet",
+      "year": "2024",
+      "tech_group": "IoT",
+      "vendor_or_product": "Consumer/SOHO broadband routers, IP/CCTV cameras and DVRs running commodity OEM firmware",
+      "cve": [],
+      "vector": "Compromise of poorly secured consumer IoT via default/weak credentials plus known firmware exploits (Mirai-derived); no single defining CVE, aggregates many device-specific flaws; firmware-update-server propagation is researcher-reported (moderate confidence)",
+      "impact_summary": "Record-breaking volumetric DDoS-for-hire against gaming platforms and internet infrastructure; UK-based compromised home routers/cameras become unwitting attack sources, relevant to the PSTI product-security regime",
+      "impact_quantified": "Cloudflare mitigated a 29.7 Tbps (approximately 14.1 billion packets/second) Aisuru attack in Q3 2025; estimated 1 to 4 million infected hosts globally (vendor telemetry, treat as indicative)",
+      "uk_relevance": "high",
+      "source_url": "https://blog.cloudflare.com/ddos-threat-report-2025-q3/",
+      "confidence": "medium"
+    },
+    {
+      "@id": "cpcid:009",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-009",
+      "name": "KV-botnet / Volt Typhoon SOHO-router takedown",
+      "year": "2023",
+      "tech_group": "IoT",
+      "vendor_or_product": "End-of-life SOHO routers (Cisco RV320/RV325, Netgear ProSafe)",
+      "cve": [],
+      "vector": "Exploitation of end-of-life unpatched SOHO routers no longer receiving vendor updates to build covert proxy infrastructure for PRC actor Volt Typhoon; no single headline CVE (unfixable EoL-hardware flaws)",
+      "impact_summary": "FBI/DOJ obtained a court order (announced 31 January 2024) and remotely deleted KV-botnet malware and severed C2; removal was temporary (reboot could re-expose). Volt Typhoon assessed as pre-positioning for disruptive attacks on US CNI. UK NCSC co-sealed advisory AA24-038a and reporting confirms UK EoL Cisco routers were targeted",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "high",
+      "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:010",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-010",
+      "name": "Hikvision IP camera mass compromise (Moobot/Mirai)",
+      "year": "2021",
+      "tech_group": "IoT",
+      "vendor_or_product": "Hikvision IP camera and NVR product lines running vulnerable web-server firmware",
+      "cve": [
+        "CVE-2021-36260"
+      ],
+      "vector": "Unauthenticated pre-auth command injection in the embedded web server yielding root RCE with no credentials; compounded by weak default passwords; Moobot (Mirai variant) recruited devices into DDoS swarms",
+      "impact_summary": "Full device takeover enabling surveillance-feed interception, lateral movement and DDoS conscription; APT41/APT10 interest is reported not established (moderate confidence). In November 2022 the UK Government ordered removal of Hikvision cameras from sensitive central-government sites",
+      "impact_quantified": "As of 2023 approximately 80000 cameras remained exploitable (from a 285000-device sample) across approximately 2300 organisations in 100+ countries; UK had over 2000 vulnerable internet-facing endpoints",
+      "uk_relevance": "high",
+      "source_url": "https://www.bleepingcomputer.com/news/security/over-80-000-exploitable-hikvision-cameras-exposed-online/",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:011",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-011",
+      "name": "Unitronics PLC attacks on US water utilities (CyberAv3ngers)",
+      "year": "2023",
+      "tech_group": "OT",
+      "vendor_or_product": "Unitronics Vision-series PLCs with integrated HMI (water/wastewater sector)",
+      "cve": [],
+      "vector": "No software CVE: exploitation of internet-exposed OT devices protected only by the Unitronics factory default password 1111 on default TCP port 2101 (default/weak-credential)",
+      "impact_summary": "IRGC-affiliated CyberAv3ngers defaced HMIs; at Aliquippa PA a water booster station was knocked offline and operators reverted to manual operation; no water-quality or public-safety impact and no access to the treatment plant itself",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "medium",
+      "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-335a",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:012",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-012",
+      "name": "Volt Typhoon critical-infrastructure pre-positioning",
+      "year": "2023",
+      "tech_group": "OT",
+      "vendor_or_product": "No single product (IT/OT boundary; valid-account and Active Directory abuse; compromised EoL edge devices)",
+      "cve": [],
+      "vector": "Living-off-the-land (LOTL) abuse of legitimate built-in tools and valid accounts plus compromise of EoL SOHO routers for covert proxy infrastructure; no single defining CVE",
+      "impact_summary": "PRC actor pre-positioned within US CNI IT/OT (communications, energy, transportation, water); agencies observed persistence for at least five years and 300+ days in a US electric utility OT network. UK NCSC is a named co-author of AA24-038A and warned the same techniques could hit UK CNI",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "high",
+      "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-038a",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:013",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-013",
+      "name": "FrostyGoop / BUSTLEBERM district-heating attack (Lviv)",
+      "year": "2024",
+      "tech_group": "OT",
+      "vendor_or_product": "ENCO heating controllers via Modbus TCP; initial access via a MikroTik router",
+      "cve": [],
+      "vector": "Go-based Windows malware speaking Modbus TCP over port 502 directly to controllers, manipulating ENCO holding registers so cold water circulated; initial access via an undetermined vulnerability in an internet-exposed MikroTik router (no CVE assigned, genuinely unidentified)",
+      "impact_summary": "First public case of malware manipulating OT directly over Modbus for physical effect; Dragos noted Moscow-based IPs but did not formally attribute to a nation-state (unattributed but Russia-linked). Pattern maps to UK district-heating and utility OT",
+      "impact_quantified": "Approximately 600 apartment buildings in the Sykhiv district lost heating for roughly 48 hours in sub-zero conditions (100000+ people affected across the district)",
+      "uk_relevance": "medium",
+      "source_url": "https://www.securityweek.com/frostygoop-ics-malware-left-ukrainian-citys-residents-without-heating/",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:014",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-014",
+      "name": "ESXiArgs ransomware (hypervisor layer)",
+      "year": "2023",
+      "tech_group": "computing_devices",
+      "vendor_or_product": "VMware ESXi bare-metal (Type-1) hypervisor with OpenSLP enabled and internet-reachable",
+      "cve": [
+        "CVE-2021-21974",
+        "CVE-2020-3992"
+      ],
+      "vector": "Automated ransomware exploiting exposure of the OpenSLP service on TCP/UDP port 427; safest characterisation is OpenSLP-exposed unpatched/EoL ESXi (not every victim clearly matched CVE-2021-21974)",
+      "impact_summary": "Second wave used a modified routine encrypting more of large files; each compromised host could take down dozens of VMs. UK-relevant by class (NHS trusts, local authorities and enterprises run heavily virtualised ESXi estates)",
+      "impact_quantified": "CISA estimated more than 3800 servers compromised globally; Rapid7 found approximately 18500 internet-facing ESXi servers vulnerable; ransom demands approximately 2 BTC typical",
+      "uk_relevance": "medium",
+      "source_url": "https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-039a",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:015",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-015",
+      "name": "LogoFAIL and BlackLotus UEFI firmware compromise",
+      "year": "2023",
+      "tech_group": "computing_devices",
+      "vendor_or_product": "UEFI/BIOS firmware (AMI, Insyde, Phoenix IBVs) and the Windows boot manager",
+      "cve": [
+        "CVE-2023-40238",
+        "CVE-2022-21894"
+      ],
+      "vector": "LogoFAIL: image-parser heap-overflow/OOB flaws let a malicious boot-logo image achieve code execution below the OS before Secure Boot (Bootkitty exploits CVE-2023-40238). BlackLotus: exploits CVE-2022-21894 (Baton Drop) to bypass Secure Boot via a bring-your-own-vulnerable-binary downgrade",
+      "impact_summary": "Firmware-level persistence surviving OS reinstall and disk replacement, bypassing Secure Boot, Intel Boot Guard and endpoint defences; the hardest compromise to remediate. Binarly reported hundreds of Intel/Lenovo/Acer models affected. UK Windows/Intel/Lenovo/Acer estate exposed pending firmware updates and DBX revocations",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "high",
+      "source_url": "https://www.binarly.io/blog/the-far-reaching-consequences-of-logofail",
+      "confidence": "high"
+    },
+    {
+      "@id": "cpcid:016",
+      "@type": "CyberIncident",
+      "identifier": "CPCID-016",
+      "name": "Log4Shell mass server/endpoint exploitation",
+      "year": "2021",
+      "tech_group": "software_firmware",
+      "vendor_or_product": "Apache Log4j (ubiquitous Java logging library) embedded in servers, appliances and OT products",
+      "cve": [
+        "CVE-2021-44228",
+        "CVE-2021-45046",
+        "CVE-2021-45105"
+      ],
+      "vector": "JNDI message-lookup substitution: a crafted logged string makes Log4j fetch and execute attacker-controlled code from a remote endpoint; unauthenticated, remote, trivial (CVSS 10.0)",
+      "impact_summary": "Exploited to deploy cryptominers, botnets, ransomware and for espionage/initial access; CISA CSRB called it an endemic vulnerability expected to be exploited for a decade. NCSC-UK confirmed UK exploitation scanning and co-authored the joint mitigation advisory. Disclosed December 2021 but mass-exploited through 2022",
+      "impact_quantified": "not_corroborated",
+      "uk_relevance": "high",
+      "source_url": "https://www.ncsc.gov.uk/news/apache-log4j-vulnerability",
+      "confidence": "high"
+    }
+  ]
+}

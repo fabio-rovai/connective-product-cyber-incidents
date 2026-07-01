@@ -1,0 +1,121 @@
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix cpcid: <https://data.tesseract.academy/cpcid/scheme#> .
+
+#################################################################
+# Connective Product Cyber Incidents taxonomy (CPCID)
+# A SKOS concept scheme with two vocabularies:
+#   1. Technology groups (the five in-scope connective-product classes)
+#   2. Vulnerability / root-cause types
+# Built for The Tesseract Academy (Kampakis and Co Ltd), CC-BY-4.0.
+#################################################################
+
+cpcid:Scheme a skos:ConceptScheme ;
+    dct:title "Connective Product Cyber Incidents Taxonomy (CPCID)"@en ;
+    dct:description "A controlled vocabulary for classifying cyber incidents affecting connective products by technology group and vulnerability root-cause type."@en ;
+    dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+    skos:hasTopConcept cpcid:tech-groups , cpcid:vuln-types .
+
+#################################################################
+# 1. TECHNOLOGY GROUPS
+#################################################################
+
+cpcid:tech-groups a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:topConceptOf cpcid:Scheme ;
+    skos:prefLabel "Technology groups"@en ;
+    skos:definition "The five connective-product technology classes in scope for the dataset."@en .
+
+cpcid:IoT a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:tech-groups ;
+    skos:prefLabel "Internet of Things (IoT)"@en ;
+    skos:altLabel "IoT"@en ;
+    skos:definition "Internet-connectable consumer and enterprise devices such as SOHO routers, IP/CCTV cameras, DVRs, NAS, VoIP and smart products, typically running commodity OEM firmware."@en ;
+    rdfs:seeAlso <https://www.etsi.org/deliver/etsi_en/303600_303699/303645/> .
+
+cpcid:OT a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:tech-groups ;
+    skos:prefLabel "Operational Technology (OT/ICS)"@en ;
+    skos:altLabel "OT"@en ;
+    skos:definition "Industrial control systems and their components (PLCs, HMIs, DCS, UPS, building automation, heating controllers) that monitor or control physical processes, including CNI such as water, energy and heating."@en ;
+    rdfs:seeAlso <https://attack.mitre.org/matrices/ics/> .
+
+cpcid:computing_devices a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:tech-groups ;
+    skos:prefLabel "Computing devices"@en ;
+    skos:definition "General computing hardware and its low-level software layers, including server virtualisation (hypervisors) and UEFI/BIOS firmware."@en .
+
+cpcid:networking_equipment a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:tech-groups ;
+    skos:prefLabel "Networking equipment"@en ;
+    skos:definition "Internet-facing network and edge appliances: routers, switches, firewalls, VPN concentrators, SSL-VPN gateways and NAC appliances."@en .
+
+cpcid:software_firmware a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:tech-groups ;
+    skos:prefLabel "Software and firmware"@en ;
+    skos:definition "Software and firmware components embedded in or serving connective products, including open-source dependencies, managed file-transfer and other commercial software, and AI/ML components."@en .
+
+#################################################################
+# 2. VULNERABILITY / ROOT-CAUSE TYPES
+#################################################################
+
+cpcid:vuln-types a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:topConceptOf cpcid:Scheme ;
+    skos:prefLabel "Vulnerability types"@en ;
+    skos:definition "Recurring root-cause categories exploited across connective-product incidents."@en .
+
+cpcid:default_credentials a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Default or weak credentials"@en ;
+    skos:definition "Exploitation of factory-default, universal or weak credentials on internet-exposed devices (for example a factory default password), the class of failure the UK PSTI ban on universal default passwords addresses."@en ;
+    rdfs:seeAlso <https://cwe.mitre.org/data/definitions/1392.html> .
+
+cpcid:unpatched_edge_device a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Unpatched or end-of-life edge device"@en ;
+    skos:definition "Exploitation of known or zero-day vulnerabilities in internet-facing edge appliances (VPN, firewall, router) running unpatched or end-of-life firmware no longer receiving vendor updates."@en ;
+    rdfs:seeAlso <https://www.cisa.gov/known-exploited-vulnerabilities-catalog> .
+
+cpcid:supply_chain_component a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Supply-chain component compromise"@en ;
+    skos:definition "Compromise of a widely reused software, dependency or file-transfer component that cascades to many downstream victims (for example open-source dependency backdoors or managed file-transfer exploitation)."@en ;
+    rdfs:seeAlso <https://cwe.mitre.org/data/definitions/1357.html> .
+
+cpcid:firmware_uefi a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Firmware and UEFI compromise"@en ;
+    skos:definition "Exploitation at the firmware or UEFI/BIOS boot layer giving persistence below the operating system, surviving reinstall and bypassing Secure Boot."@en ;
+    rdfs:seeAlso <https://cwe.mitre.org/data/definitions/1277.html> .
+
+cpcid:memory_safety a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Memory-safety flaw"@en ;
+    skos:definition "Buffer overflow, out-of-bounds read/write or related memory-corruption vulnerability enabling remote code execution."@en ;
+    rdfs:seeAlso <https://cwe.mitre.org/data/definitions/119.html> .
+
+cpcid:command_injection a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Command or code injection"@en ;
+    skos:definition "Injection of attacker-controlled commands or code (OS command injection, SQL injection, JNDI/lookup injection) yielding remote code execution."@en ;
+    rdfs:seeAlso <https://cwe.mitre.org/data/definitions/77.html> .
+
+cpcid:living_off_the_land a skos:Concept ;
+    skos:inScheme cpcid:Scheme ;
+    skos:broader cpcid:vuln-types ;
+    skos:prefLabel "Living off the land (LOTL)"@en ;
+    skos:definition "Abuse of legitimate built-in tools and valid accounts rather than malware, associated with state pre-positioning in critical infrastructure. Not a software CVE class but a recurring vector in the dataset."@en ;
+    rdfs:seeAlso <https://attack.mitre.org/techniques/T1218/> .
