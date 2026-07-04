@@ -2,7 +2,7 @@
 
 An open, machine-readable dataset of documented cyber incidents affecting **connective products**, with a source-quality grading rubric. Every incident and every figure traces to a cited primary or authoritative source.
 
-Maintained by **The Tesseract Academy** (Kampakis and Co Ltd), a UK research and data-science practice.
+Maintained by **The Tesseract Academy** (Kampakis and Co Ltd), a UK research and data-science practice. Full write-up: [Cyber Incidents Affecting Connective Products](https://gov.tesseract.academy/research/connective-product-cyber-incidents), part of the [Tesseract Foundational Research](https://gov.tesseract.academy/research) programme.
 
 Licence: dataset released under **CC-BY-4.0** (see `LICENSE`).
 
